@@ -23,7 +23,7 @@ export const HomeScreen = () => {
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
 
-  const {data, error, getWeather, loading} = useGetWeather();
+  const {data, getWeather, loading} = useGetWeather();
 
   const getPosition = useCallback(() => {
     Geolocation.getCurrentPosition(
@@ -101,6 +101,7 @@ export const HomeScreen = () => {
 
           <TouchableOpacity
             onPress={() => getWeather(lat, long)}
+            disabled={loading}
             style={styles.button}>
             <Text style={styles.buttonText}>Atualizar</Text>
           </TouchableOpacity>

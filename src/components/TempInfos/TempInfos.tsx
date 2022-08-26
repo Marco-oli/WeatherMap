@@ -7,12 +7,12 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import {colors} from '../../assets/colors';
 
 export interface ITempoInfosProps {
-  temp: number;
-  tempMax: number;
-  tempMin: number;
-  moisture: number;
-  wind: number;
-  icon: string;
+  temp?: number;
+  tempMax?: number;
+  tempMin?: number;
+  moisture?: number;
+  wind?: number;
+  icon?: string;
 }
 
 export const TempInfos = ({
@@ -25,33 +25,43 @@ export const TempInfos = ({
 }: ITempoInfosProps) => {
   return (
     <View>
-      <View style={styles.containerTemps}>
-        <Text style={styles.temp}>{temp?.toFixed()}°</Text>
-        <Image
-          source={{uri: `http://openweathermap.org/img/wn/${icon}@2x.png`}}
-          style={{width: 120, height: 120}}
-        />
-      </View>
+      {temp && (
+        <View style={styles.containerTemps}>
+          <Text style={styles.temp}>{temp?.toFixed()}°</Text>
+          <Image
+            source={{uri: `http://openweathermap.org/img/wn/${icon}@2x.png`}}
+            style={{width: 120, height: 120}}
+          />
+        </View>
+      )}
 
-      <View style={styles.containerTemps}>
-        <AntDesignIcon name="arrowup" size={30} color={colors.orange} />
-        <Text style={styles.tempMax}>Máxima: {tempMax?.toFixed()}°</Text>
-      </View>
+      {tempMax && (
+        <View style={styles.containerTemps}>
+          <AntDesignIcon name="arrowup" size={30} color={colors.orange} />
+          <Text style={styles.tempMax}>Máxima: {tempMax?.toFixed()}°</Text>
+        </View>
+      )}
 
-      <View style={styles.containerTemps}>
-        <AntDesignIcon name="arrowdown" size={30} color={colors.blue} />
-        <Text style={styles.tempMin}>Mínima: {tempMin?.toFixed()}°</Text>
-      </View>
+      {tempMin && (
+        <View style={styles.containerTemps}>
+          <AntDesignIcon name="arrowdown" size={30} color={colors.blue} />
+          <Text style={styles.tempMin}>Mínima: {tempMin?.toFixed()}°</Text>
+        </View>
+      )}
 
-      <View style={styles.containerTemps}>
-        <FeatherIcon name="droplet" size={30} color={colors.green} />
-        <Text style={styles.moisture}>Umidade: {moisture?.toFixed()}%</Text>
-      </View>
+      {moisture && (
+        <View style={styles.containerTemps}>
+          <FeatherIcon name="droplet" size={30} color={colors.green} />
+          <Text style={styles.moisture}>Umidade: {moisture?.toFixed()}%</Text>
+        </View>
+      )}
 
-      <View style={styles.containerTemps}>
-        <FeatherIcon name="wind" size={30} color={colors.gray} />
-        <Text style={styles.wind}>Vento: {wind?.toFixed()} km/h</Text>
-      </View>
+      {wind && (
+        <View style={styles.containerTemps}>
+          <FeatherIcon name="wind" size={30} color={colors.gray} />
+          <Text style={styles.wind}>Vento: {wind?.toFixed()} km/h</Text>
+        </View>
+      )}
     </View>
   );
 };
