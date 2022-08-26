@@ -5,7 +5,7 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 import {colors} from '../../assets/colors';
 
 export interface IHeaderProps {
-  location: string;
+  location?: string;
 }
 
 export const Header = ({location}: IHeaderProps) => {
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: 20,
   },
   location: {
     flexDirection: 'row',
