@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {
   ActivityIndicator,
-  Image,
   ImageBackground,
   PermissionsAndroid,
   Platform,
@@ -73,7 +72,6 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     if (lat && long) {
-      console.log(lat, long);
       getWeather(lat, long);
     }
   }, [lat, long]);

@@ -13,7 +13,9 @@ export const Header = ({location}: IHeaderProps) => {
     <View style={styles.container}>
       <View style={styles.location}>
         <EntypoIcon name="location-pin" size={25} color={colors.white} />
-        <Text style={styles.locationText}>{location}</Text>
+        <Text testID="header-text" style={styles.locationText}>
+          {location}
+        </Text>
       </View>
 
       <EntypoIcon name="menu" size={30} color={colors.white} />
